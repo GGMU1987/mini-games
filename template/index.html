@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Template Game</title>
+  <meta name="description" content="A tiny casual game. Replace this with your game in one line." />
+  <!-- 换皮时改上面两行 + config.js；favicon 先用 emoji SVG 占位，美术到位后换文件 -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐐</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="app">
+    <!-- HUD：分数 / 最佳 / 暂停 / 音效 -->
+    <header id="hud">
+      <div class="hud-left">
+        <span id="score-label">SCORE</span>
+        <strong id="score">0</strong>
+        <span id="best-label">BEST <span id="best">0</span></span>
+      </div>
+      <div class="hud-right">
+        <button id="btn-sound" type="button" aria-label="Toggle sound" title="Sound on/off">🔊</button>
+        <button id="btn-pause" type="button" aria-label="Pause game" title="Pause (P)">⏸</button>
+      </div>
+    </header>
+
+    <!-- 游戏区：canvas 只负责画面，按钮/HUD 都用 DOM，方便改样式和做无障碍 -->
+    <div id="stage">
+      <canvas id="game" width="360" height="540" aria-label="Game area"></canvas>
+
+      <!-- 开始屏 -->
+      <section id="screen-menu" class="screen">
+        <h1 id="game-title">Template Game</h1>
+        <p id="game-desc">Tap / click to score. Replace this with your real rule in one line.</p>
+        <button id="btn-start" type="button" class="btn-primary">▶ Start</button>
+        <p class="hint">Desktop: click / Space &nbsp;·&nbsp; Mobile: tap &nbsp;·&nbsp; P = pause</p>
+      </section>
+
+      <!-- 暂停屏 -->
+      <section id="screen-pause" class="screen hidden">
+        <h2>Paused</h2>
+        <button id="btn-resume" type="button" class="btn-primary">▶ Resume</button>
+        <button id="btn-restart-from-pause" type="button" class="btn-secondary">↻ Restart</button>
+      </section>
+
+      <!-- 结束屏 -->
+      <section id="screen-over" class="screen hidden">
+        <h2 id="over-title">Game Over</h2>
+        <p>Score: <strong id="final-score">0</strong> &nbsp;·&nbsp; Best: <strong id="final-best">0</strong></p>
+        <p id="new-best" class="hidden">🎉 New best!</p>
+        <button id="btn-restart" type="button" class="btn-primary">↻ Play again</button>
+        <button id="btn-share" type="button" class="btn-secondary">↗ Share score</button>
+      </section>
+    </div>
+
+    <footer id="footer">
+      <span id="version">v0.1.0</span>
+      <span>·</span>
+      <a id="link-home" href="/">← Back to Zodiac AI</a>
+    </footer>
+  </main>
+
+  <!-- 顺序不能换：config → analytics → main；无构建步骤，直接双击/静态托管就能跑 -->
+  <script src="config.js"></script>
+  <script src="../analytics/analytics.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

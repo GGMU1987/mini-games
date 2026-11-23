@@ -1,0 +1,110 @@
+/* ==========================================================================
+ * THEME — 换皮第一步：只改 :root 里的变量，结构/类名不要动
+ * 换皮清单：--bg / --accent / --text / --panel + config.js 的 theme.sprites
+ * 移动端优先：舞台固定 360×540（CSS 缩放适配），按钮 ≥44px 触摸目标
+ * ========================================================================== */
+:root {
+  --bg: #5b0f0f;
+  --panel: #7f1d1d;
+  --text: #fef3c7;
+  --muted: #fca5a5;
+  --accent: #fbbf24;
+  --accent-text: #7f1d1d;
+  --danger: #ef4444;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  display: flex;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+
+#app {
+  width: 100%;
+  max-width: 420px;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 10px;
+}
+
+/* HUD */
+#hud {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+}
+.hud-left { display: flex; align-items: baseline; gap: 8px; }
+#score-label, #best-label { font-size: 11px; letter-spacing: .08em; color: var(--muted); }
+#score { font-size: 24px; }
+#best { color: var(--accent); }
+.hud-right { display: flex; gap: 8px; }
+.hud-right button {
+  width: 44px; height: 44px;
+  font-size: 20px;
+  background: transparent; color: var(--text);
+  border: 1px solid var(--muted); border-radius: 10px; cursor: pointer;
+}
+
+/* 舞台 */
+#stage {
+  position: relative;
+  flex: 1;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--panel);
+  /* 舞台高度由 canvas 比例撑起，移动端不出现双滚动 */
+  aspect-ratio: 2 / 3;
+  max-height: 70dvh;
+  touch-action: none; /* 关键：阻止触摸滑动页面，交给 JS 处理 */
+}
+#game { display: block; width: 100%; height: 100%; }
+
+/* 覆盖屏（开始/暂停/结束共用） */
+.screen {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 14px;
+  padding: 24px; text-align: center;
+  background: rgba(15, 23, 42, .82);
+}
+.hidden { display: none !important; }
+.screen h1 { font-size: 28px; }
+.screen h2 { font-size: 24px; }
+.screen p { color: var(--muted); font-size: 14px; line-height: 1.5; }
+.hint { font-size: 12px !important; }
+#new-best { color: var(--accent); font-weight: 700; }
+
+button { font-family: inherit; }
+.btn-primary, .btn-secondary {
+  min-height: 48px; padding: 12px 24px;
+  border: none; border-radius: 999px;
+  font-size: 16px; font-weight: 700; cursor: pointer;
+}
+.btn-primary { background: var(--accent); color: var(--accent-text); }
+.btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--muted); }
+.btn-primary:active, .btn-secondary:active { transform: scale(.97); }
+
+#footer {
+  display: flex; justify-content: center; gap: 8px;
+  font-size: 12px; color: var(--muted);
+}
+#footer a { color: var(--muted); }
+
+/* 横屏/大屏只居中，不拉伸舞台 */
+@media (min-width: 480px) {
+  #app { padding: 16px; }
+}
