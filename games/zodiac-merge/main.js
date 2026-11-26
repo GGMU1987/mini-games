@@ -259,7 +259,7 @@
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     var i, t;
     // 危险线
-    ctx.strokeStyle = overflowTimer > 0 ? "#ef4444" : "rgba(251,191,36,0.5)";
+    ctx.strokeStyle = overflowTimer > 0 ? "#ef4444" : "rgba(251,146,60,0.5)";
     ctx.setLineDash([8, 6]);
     ctx.lineWidth = 2;
     ctx.beginPath(); ctx.moveTo(0, DANGER_Y); ctx.lineTo(360, DANGER_Y); ctx.stroke();
@@ -267,7 +267,7 @@
     // 掉落器：虚线引导 + 下一个球预览
     if (state === STATE.PLAYING || state === STATE.MENU) {
       t = TIERS[nextTier];
-      ctx.strokeStyle = "rgba(254,243,199,0.35)";
+      ctx.strokeStyle = "rgba(245,233,255,0.35)";
       ctx.lineWidth = 1;
       ctx.beginPath(); ctx.moveTo(dropX, 70); ctx.lineTo(dropX, 520); ctx.stroke();
       ctx.fillStyle = t.color;
@@ -283,7 +283,7 @@
       ctx.fillStyle = t.color;
       ctx.beginPath(); ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2); ctx.fill();
       ctx.lineWidth = 2;
-      ctx.strokeStyle = b.tier >= FINAL_TIER ? "#fbbf24" : "rgba(0,0,0,0.25)";
+      ctx.strokeStyle = b.tier >= FINAL_TIER ? "#fb923c" : "rgba(0,0,0,0.25)";
       ctx.stroke();
       ctx.font = Math.round(b.r * 1.15) + "px sans-serif";
       ctx.textAlign = "center"; ctx.textBaseline = "middle";

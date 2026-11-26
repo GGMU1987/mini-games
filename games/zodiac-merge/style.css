@@ -4,12 +4,12 @@
  * 移动端优先：舞台固定 360×540（CSS 缩放适配），按钮 ≥44px 触摸目标
  * ========================================================================== */
 :root {
-  --bg: #5b0f0f;
-  --panel: #7f1d1d;
-  --text: #fef3c7;
-  --muted: #fca5a5;
-  --accent: #fbbf24;
-  --accent-text: #7f1d1d;
+  --bg: #0d0618;
+  --panel: #1e1033;
+  --text: #f5e9ff;
+  --muted: #b794f6;
+  --accent: #fb923c;
+  --accent-text: #2a1503;
   --danger: #ef4444;
   --radius: 14px;
 }

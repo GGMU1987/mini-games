@@ -12,8 +12,8 @@
 window.GAME_CONFIG = {
   // -- 身份：每次新游戏必改 -------------------------------------------------
   slug: "zodiac-merge",          // = games/<slug>/ 的文件夹名，必填，kebab-case
-  title: "Zodiac Merge",         // 页面标题 + 分享文案标题
-  description: "Drop and merge the 12 zodiac animals — merge all the way to the Fire Goat!",
+  title: "Zodiac Merge: Haunted Night", // 页面标题 + 分享文案标题
+  description: "Drop and merge the 12 zodiac animals in their Halloween costumes — merge all the way to the Fire Goat!",
   version: "0.1.0",              // 每次上线改：见 docs/release-checklist.md
   lang: "en",                    // en | zh-CN（首批海外站用 en）
 
@@ -21,15 +21,15 @@ window.GAME_CONFIG = {
   theme: {
     // 颜色与 style.css :root 里的变量保持一致，二选一改一处即可，
     // 推荐只改 style.css，这里只留给 JS 画布用的颜色。
-    bg: "#5b0f0f",
-    accent: "#fbbf24",
-    text: "#fef3c7",
+    bg: "#0d0618",
+    accent: "#fb923c",
+    text: "#f5e9ff",
     // 贴图/emoji：先用 emoji 占位，美术到位后换成 assets/ 下的文件路径。
     // 例如：sprites: { player: "assets/player.png", target: "assets/target.png" }
     sprites: {
-      player: "🐐",
+      player: "🎃",
       target: "🐏",
-      obstacle: "🧧",
+      obstacle: "👻",
     },
   },
 
@@ -50,7 +50,7 @@ window.GAME_CONFIG = {
 
   // -- 分享 -----------------------------------------------------------------
   share: {
-    text: "I merged my way to the Fire Goat in Zodiac Merge! Can you beat my score?",
+    text: "I merged my way to the Fire Goat in Zodiac Merge: Haunted Night! Can you beat my score?",
     // url 留空 = 自动取当前页 URL；上架 itch/CrazyGames 后填对应页面
     url: "",
   },
